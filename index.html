@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser PDF Editor</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="toolbar">
+        <div class="button-group">
+            <button id="load-pdf">Load PDF</button>
+            <input type="file" id="file-input" accept=".pdf"/>
+        </div>
+        <div class="button-group">
+            <button id="text-tool">Add Text</button>
+			<button id="edit-text-tool">Edit Text</button>
+            <button id="image-tool">Add Image</button>
+            <input type="file" id="image-input" accept="image/*"/>
+            <button id="red-box-tool">Draw Box</button>
+            <button id="red-arrow-tool">Draw Arrow</button>
+            <button id="eraser-tool">Eraser</button>
+            <button id="pen-tool">Pen</button>
+        </div>
+        <div class="text-options" id="text-options">
+            <select id="font-family">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Impact">Impact</option>
+            </select>
+            <select id="font-size">
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="16" selected>16</option>
+                <option value="18">18</option>
+                <option value="20">20</option>
+                <option value="24">24</option>
+                <option value="28">28</option>
+                <option value="32">32</option>
+                <option value="36">36</option>
+                <option value="48">48</option>
+            </select>
+            <select id="font-color">
+                <option value="black">Black</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="purple">Purple</option>
+            </select>
+        </div>
+        <div class="button-group">
+            <button id="undo-button">Undo</button>
+            <button id="clear-button">Clear All</button>
+        </div>
+        <div class="button-group">
+            <button id="save-pdf">Save PDF</button>
+        </div>
+        <div class="status" id="status">No PDF loaded</div>
+    </div>
+    <div class="main-container">
+        <div class="canvas-container" id="canvas-container">
+            <div id="pdf-container"></div>
+        </div>
+    </div>
+
+    <!-- Order matters: first load config, then utilities, then features, then main.js -->
+
+    <script src="js/config.js"></script>
+    <script src="js/utilities.js"></script>
+    <script src="js/textExtractor.js"></script>
+    <script src="js/pdfLoader.js"></script>
+    <script src="js/textTool.js"></script>
+    <script src="js/shapeTool.js"></script>
+    <script src="js/imageTool.js"></script>
+    <script src="js/penTool.js"></script>
+    <script src="js/eraserTool.js"></script>
+    <script src="js/pdfExporter.js"></script>
+    <script src="js/main.js"></script>
+	
+</body>
+</html>
